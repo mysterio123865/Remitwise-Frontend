@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import FamilyMemberStatCard, { FamilyMember } from "./FamilyMemberStatCard";
+import FamilyMemberDetailDrawer from "./FamilyMemberDetailDrawer";
 
 export const familyMembers: FamilyMember[] = [
 	{
@@ -53,6 +54,7 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
 });
 
 const FamilyMemberSection: React.FC = () => {
+	const [selectedMember, setSelectedMember] = useState<FamilyMember | null>(null);
 	const activeCount = getActiveMemberCount();
 	const totalLimit = familyMembers.reduce(
 		(sum, member) => sum + member.spendingLimit,
@@ -132,9 +134,16 @@ const FamilyMemberSection: React.FC = () => {
 						<FamilyMemberStatCard
 							key={member.id}
 							member={member}
+							onViewDetails={() => setSelectedMember(member)}
 						/>
 					))}
 			</div>
+
+			<FamilyMemberDetailDrawer
+				member={selectedMember}
+				open={selectedMember !== null}
+				onClose={() => setSelectedMember(null)}
+			/>
 		</section>
 	);
 };

@@ -141,7 +141,41 @@
     }
 
     },
-    "transactionHistory": {
+    "familyDrawer": {
+    "ariaLabel": "Member detail",
+    "close": "Close member detail",
+    "stellarAddress": "Stellar address",
+    "spendingLimit": "Spending limit",
+    "editLimit": "Edit spending limit",
+    "cancelEdit": "Cancel edit",
+    "newLimitInput": "New spending limit",
+    "invalidLimit": "Invalid limit value",
+    "save": "Save",
+    "saving": "Saving…",
+    "limitSaved": "Limit updated",
+    "limitSaveError": "Failed to save limit",
+    "contractUnavailableTitle": "Live member data unavailable",
+    "contractUnavailableDescription": "The wallet contract endpoint is not deployed yet, so the drawer is showing the latest available card values.",
+    "spent": "Spent",
+    "remaining": "Remaining",
+    "utilization": "Utilization",
+    "utilizationLabel": "Spending utilization",
+    "spendCheck": "Spend eligibility",
+    "checkAllowed": "Member can make additional purchases",
+    "checkBlocked": "Member has reached their spending limit",
+    "recentActivity": "Recent activity",
+    "monthlySpendActivity": "Monthly spending",
+    "currentCycle": "Current wallet cycle",
+    "noActivityTitle": "No recent activity",
+    "noActivityDescription": "This member has no spending recorded for the current cycle.",
+    "addedAt": "Member since",
+    "notFound": "Member not found",
+    "fetchError": "Failed to load member data",
+    "emptyTitle": "No member selected",
+    "emptyDescription": "Select a member from the list to view details.",
+    "emptyCtaLabel": "View family"
+  },
+  "transactionHistory": {
 
     "title": "Transaction History",
     "titleStandalone": "Transaction History",
