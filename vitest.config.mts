@@ -13,9 +13,12 @@ export default defineConfig({
       'tests/property/**/*.test.cjs',
       'tests/session/**/*.test.ts',
       'tests/session/**/*.test.cjs',
+      'tests/react/**/*.test.tsx',
+      'tests/react/**/*.test.ts',
     ],
-    environment: 'node',
+    environment: 'jsdom',
     globals: true,
+    setupFiles: ['tests/setup.ts', 'tests/react/setup.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
