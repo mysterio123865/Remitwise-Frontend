@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { ContractError } from '../errors/contract-errors';
 
 export interface ErrorEnvelope {
@@ -63,8 +63,8 @@ export function mapError(error: unknown, requestId?: string): { status: number; 
   };
 }
 
-export function withApiErrorHandler(handler: (request: Request, ...args: any[]) => Promise<Response>) {
-  return async function (request: Request, ...args: any[]) {
+export function withApiErrorHandler(handler: (request: any, ...args: any[]) => Promise<Response>) {
+  return async function (request: any, ...args: any[]) {
     const requestId = request.headers.get('x-request-id') || 'req-' + Math.random().toString(36).substring(2, 11);
     try {
       const response = await handler(request, ...args);

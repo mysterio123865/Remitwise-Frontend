@@ -6,12 +6,12 @@ import {
   type SemanticStatusPresentation,
 } from "@/lib/ui/status-semantics";
 import { useClientTranslator } from "@/lib/i18n/client";
-import { usePrefersReducedMotion } from "@/lib/hooks/usePrefersReducedMotion";
+import { usePrefersReducedMotion } from "@/usePrefersReducedMotion";
 import {
   useTransactionStatus,
   type TransactionLifecycleStatus,
   type UseTransactionStatusOptions,
-} from "@/lib/hooks/useTransactionStatus";
+} from "@/useTransactionStatus";
 
 type DisplayStatus = Exclude<TransactionLifecycleStatus, "idle">;
 
@@ -71,7 +71,7 @@ export default function TransactionStatusIndicator({
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const shouldPoll = Boolean(txHash) && live !== false;
-  const polled = useTransactionStatus(shouldPoll ? txHash : null, pollOptions);
+  const polled = useTransactionStatus(shouldPoll ? txHash ?? null : null, pollOptions);
 
   // Live status wins when polling; otherwise fall back to the controlled prop.
   const effective: DisplayStatus = shouldPoll

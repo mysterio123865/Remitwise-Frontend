@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 import { getTranslator } from '../../../../lib/i18n'
 import crypto from 'crypto'
 import { verifySignature } from '@/lib/webhooks/verify'
@@ -13,7 +13,7 @@ import {
 
 registerGracefulShutdown();
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     if (isShuttingDown()) {
       return NextResponse.json({ error: 'Server is shutting down' }, { status: 503 })

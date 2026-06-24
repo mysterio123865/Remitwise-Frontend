@@ -84,6 +84,9 @@ const billQueue = [
 
 const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
+// Minimal mock bills placeholder for client-side warning behavior in dev/test
+const mockBills: Bill[] = [];
+
 function ordinalDay(day: string) {
 	const value = Number(day);
 	const suffix =
